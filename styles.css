@@ -20,11 +20,32 @@ html {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("/images/img4.jpg");
+  z-index: -1;
+}
+
+.low-quality-bg {
+  background-image: url("images/img4-smaller.jpg"); /* Low-res placeholder */
   background-size: cover;
   background-position: center;
-  filter: blur(8px) brightness(0.6);
-  z-index: -1;
+  filter: blur(5px) brightness(0.5);
+}
+
+.high-quality-bg {
+  background-image: url("images/img4.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 2s ease;
+  animation: fade-in 2s 1s forwards; /* Delay fade-in to allow initial load */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .container {
